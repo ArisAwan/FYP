@@ -9,9 +9,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+/* body {
   display: flex;
-  height: 100vvh;
+  height: 100vh;
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #71b7e6, #9b59b6);
@@ -19,7 +19,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   padding: 10px;
-}
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

@@ -1,4 +1,15 @@
 /*---------------------------------------------Css for Registrations.js---------------------------------------*/
+.App{
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 10px;
+}
 
 /* div containing registration form in Regestration.js */
 .container{
