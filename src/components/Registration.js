@@ -5,8 +5,8 @@ import { useState } from "react";
 import Login from "./login";
 import { Link } from "react-router-dom";
 
-const Registration = (props) => {
-    
+const Registration = ({ contract, account, provider }) => {
+     console.log("Agressssss",contract);
     //Getting data from form and storing it
     const [userRegistration, setUserRegistration] = useState({
         username: "",
@@ -21,11 +21,16 @@ const Registration = (props) => {
         const value = e.target.value;//to get value of targeted input
 
         setUserRegistration({...userRegistration, [name] : value}) // Setting value in the varialbles
+
     }
 
-    const handleSubmit = (e)=>{
+    const handleSubmit =  (e)=>{
         e.preventDefault();//Prevents forms default behaviour on submitting that is refreshing the form
         //code to send data to blockchain
+
+        contract.signup(userRegistration.username,userRegistration.email,userRegistration.password);
+         
+        
     }
     //-----------------------------------------------------------------------------------------------------------
 
@@ -101,7 +106,7 @@ const Registration = (props) => {
                 
                <div>
 
-               <p class="text-gray-soft text-center small mb-2">Already have an account? 
+               <p className="text-gray-soft text-center small mb-2">Already have an account? 
                <Link to="/signin">SignIn</Link></p>
 
                </div>
