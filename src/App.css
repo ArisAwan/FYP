@@ -1,10 +1,11 @@
 /*---------------------------------------------Css for Registrations.js---------------------------------------*/
 .App{
+  
   display: flex;
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  background: linear-gradient(135deg, #151616, #9b59b6);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -13,7 +14,8 @@
 
 /* div containing registration form in Regestration.js */
 .container{
-  max-width: 700px;
+  
+  max-width: 400px;
   width: 100%;
   background: #fff;
   padding: 25px 30px;
@@ -22,6 +24,7 @@
 
 /* Registration title in .container div */
 .container .title{  
+  text-align: center;
   font-size: 25px;
   font-weight: 500;
   position: relative;
@@ -32,17 +35,17 @@
   position: absolute;
   height: 3px;
   width: 30px;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  background: linear-gradient(135deg, #e41b1b, #dd29dd);
   left: 0;
   bottom: 0;
 }
 
 /* div containing all the user detail elements in form */
 .container form .user-details{
-  display: flex;
+  /* display: flex; */
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 20px 0 12px 0;
+  margin: 10px 0 12px 0;
 }
 
 

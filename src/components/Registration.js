@@ -1,22 +1,18 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
-import $ from 'jquery';
-import Popper from 'popper.js';
+// import $ from 'jquery';
+// import Popper from 'popper.js';
 import { useState } from "react";
+import Login from "./login";
+import { Link } from "react-router-dom";
 
-const Registration = () => {
+const Registration = (props) => {
     
     //Getting data from form and storing it
     const [userRegistration, setUserRegistration] = useState({
-        name: "",
         username: "",
         email: "",
-        phone: "",
-        account: "",
         password: "",
         confirmPassword: "",
-        gender: ""
     });
 
     const handleInput = (e)=>{
@@ -38,12 +34,6 @@ const Registration = () => {
             <div className="title">Registration</div>
             <form action="" onSubmit={handleSubmit}>
                 <div className="user-details">
-                    <div className="form-group input-box">
-                        <label htmlFor="name" className="reg-field-label">Full Name :</label>
-                        <input type="text" name="name" id="name" className="form-control" placeholder="Enter your name" required
-                        value={userRegistration.name}
-                        onChange={handleInput}/>
-                    </div>
 
                     <div className="form-group input-box">
                         <label htmlFor="username" className="reg-field-label">Username :</label>
@@ -59,19 +49,12 @@ const Registration = () => {
                         onChange={handleInput}/>
                     </div>
 
-                    <div className="form-group input-box">
-                        <label htmlFor="phone" className="reg-field-label">Phone Number :</label>
-                        <input type="text" name="phone" id="phone" className="form-control" placeholder="Enter your number" required
-                        value={userRegistration.phone}
-                        onChange={handleInput}/>
-                    </div>
-
-                    <div className="form-group input-box">
+                    {/* <div className="form-group input-box">
                         <label htmlFor="account" className="reg-field-label">Metamask Account Address :</label>
                         <input type="text" name="account" id="account" className="form-control" placeholder="0x724...." autoComplete="off" required
                         value={userRegistration.account}
                         onChange={handleInput}/>
-                    </div>
+                    </div> */}
 
                     <div className="form-group input-box">
                         <label htmlFor="password" className="reg-field-label">Password :</label>
@@ -80,7 +63,7 @@ const Registration = () => {
                         onChange={handleInput}/>
                     </div>
 
-                    <div className="form-group input-box">
+                    <div className="form-group input-box my-3">
                         <label htmlFor="confirmPassword" className="reg-field-label">Confirm Password :</label>
                         <input type="password" name="confirmPassword" id="confirm-password" className="form-control" placeholder="Confirm password" autoComplete="off" required
                         value={userRegistration.confirmPassword}
@@ -88,7 +71,7 @@ const Registration = () => {
                     </div>
                 </div>
                 
-                <div className="gender-details">
+                {/* <div className="gender-details">
                     <input type="radio" name="gender" id="dot-1" value={"male"} onChange={handleInput}/>
                     <input type="radio" name="gender" id="dot-2" value={"female"} onChange={handleInput}/>
                     <input type="radio" name="gender" id="dot-3" value={"other"} onChange={handleInput}/>
@@ -110,11 +93,19 @@ const Registration = () => {
                             <span className="gender">Other</span>
                         </label>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="button">
                     <input type="submit" name="register" value="Register" />
                 </div>
+                
+               <div>
+
+               <p class="text-gray-soft text-center small mb-2">Already have an account? 
+               <Link to="/signin">SignIn</Link></p>
+
+               </div>
+
             </form>
         </div>
     )

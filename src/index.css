@@ -8,9 +8,8 @@
     -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-/* body {
-  display: flex;
+ body {
+  /* display: flex; */
   height: 100vh;
   justify-content: center;
   align-items: center;
@@ -19,7 +18,7 @@
   background-size: cover;
   background-attachment: fixed;
   padding: 10px;
-} */
+} 
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
