@@ -1,7 +1,8 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity >=0.5.0 <0.9.0;
+import "hardhat/console.sol";
 
-contract SocialMedia {
+contract Signup_signin {
     mapping(string => User) public users;
 
     struct User {
@@ -55,4 +56,6 @@ contract SocialMedia {
 
         return _check;
     }
+
+    receive() external payable {}
 }

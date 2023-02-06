@@ -13,13 +13,16 @@ async function main() {
 
   const lockedAmount = hre.ethers.utils.parseEther("1");
 
-  const Lock = await hre.ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  // const Lock = await hre.ethers.getContractFactory("Lock");
 
-  await lock.deployed();
+  const Signup_signin = await hre.ethers.getContractFactory("Signup_signin");
+  //const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  const signup_signin = await Signup_signin.deploy();
+
+  await signup_signin.deployed();
 
   console.log(
-    `Lock with 1 ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
+    `Lock with 1 ETH and unlock timestamp ${unlockTime} deployed to ${signup_signin.address}`
   );
 }
 
