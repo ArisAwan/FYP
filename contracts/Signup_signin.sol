@@ -47,13 +47,20 @@ contract Signup_signin {
         bool _check = false;
         if (!users[_email].isVerified) {
             _check = false;
+            console.log("bye bye not exist");
+            return _check;
         }
+
+        // bytes32 passwordHash = sha256(abi.encodePacked(_password));
+        // if (users[_email].password == passwordHash) {
+        //     _check = true;
+        // }
 
         bytes32 passwordHash = sha256(abi.encodePacked(_password));
-        if (users[_email].password == passwordHash) {
+        if (users[_email].password == passwordHash ) {
             _check = true;
         }
-
+        
         return _check;
     }
 

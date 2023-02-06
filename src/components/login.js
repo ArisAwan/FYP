@@ -18,10 +18,10 @@ const Login = ({ contract, account, provider }) => {
     setUserLogin({ ...userLogin, [name]: value }); // Setting value in the varialbles
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault(); //Prevents forms default behaviour on submitting that is refreshing the form
     //code to send data to blockchain
-    let signin_confirmation = contract.signin(
+    let signin_confirmation = await contract.signin(
       userLogin.email,
       userLogin.password
     );
@@ -29,7 +29,7 @@ const Login = ({ contract, account, provider }) => {
     if (signin_confirmation) {
       alert("successfully login");
     } else {
-      alert("first login");
+      alert("first signup");
     }
   };
   //-----------------------------------------------------------------------------------------------------------

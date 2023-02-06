@@ -21,6 +21,7 @@ function App() {
   const [provider, setProvider] = useState(null);
 
   useEffect(() => {
+    //
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
     const loadProvider = async () => {
@@ -28,7 +29,6 @@ function App() {
         window.ethereum.on("chainChanged", () => {
           window.location.reload();
         });
-
         window.ethereum.on("accountsChanged", () => {
           window.location.reload();
         });
@@ -38,8 +38,8 @@ function App() {
         const address = await signer.getAddress();
         setAccount(address);
         console.log("currently signin in metamask", address);
-        console.log("sheriiiiiiiiiiiiii", address);
-        let contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+        console.log("sheriiiiiiiiirishiiiii", address);
+        let contractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
 
         console.log("abi object is ", Signup_signin.abi);
         const contract = new ethers.Contract(
@@ -47,6 +47,7 @@ function App() {
           Signup_signin.abi,
           signer
         );
+
         console.log("this is oyr contract", contract);
         setContract(contract);
         setProvider(provider);
@@ -83,6 +84,7 @@ function App() {
           props we passes the imported component*/}
           {/* <Route path="/signin" component={Login} /> */}
           <Route
+            exact
             path="/signin"
             render={() => (
               <Login
