@@ -1,0 +1,107 @@
+/* .image-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 10px;
+  grid-auto-rows: 350px;
+
+  margin: 10px;
+}
+
+.image-list img {
+  width: 250px;
+  height: 350px;
+}
+.center {
+  margin: 40px;
+}
+
+.button {
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #009ffd, #2a2a72);
+  border-radius: 6px;
+  color: #ffffff;
+  padding: 5px 10px;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-right: 10px;
+  padding-bottom: 10px;
+}
+.button:hover {
+  box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+}
+.address {
+  display: block;
+  margin: auto;
+  height: 30px;
+  width: 330px;
+  text-align: center;
+}
+
+input[type="text"]:focus {
+  background-color: lightblue;
+} */
+
+@import url("https://fonts.googleapis.com/css2?family=Mukta&display=swap");
+
+.main-container {
+  display: flex;
+  justify-content: center;
+}
+
+.posts-container {
+  justify-content: center;
+  border-radius: 5px;
+  display: grid;
+  height: 100px;
+  grid-template-rows: repeat(auto-fill, minmax(500px, 1fr));
+  grid-gap: 10px;
+  row-gap: 20px;
+  grid-auto-rows: 350px;
+  margin: 10px;
+  width: 40vw;
+  align-items: center;
+  clear: both;
+}
+/* .posts-container2 {
+  justify-content: center;
+  border-radius: 5px;
+  display: grid;
+  height: 100px;
+  grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 10px;
+  row-gap: 200px;
+  grid-auto-rows: 350px;
+  margin: 10px;
+  width: 40vw;
+  align-items: center;
+  clear: both;
+} */
+
+.single-post-container {
+  padding: 10px;
+}
+
+.account-name {
+  font-family: "Mukta", sans-serif;
+  font-weight: bold;
+}
+
+.image-container {
+  width: 100%;
+  height: 50%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.post-image {
+  width: 100%;
+  height: 100%;
+}
+
+.discription-text {
+  font-family: "Mukta", sans-serif;
+  width: 100%;
+  /* text-align: center; */
+  vertical-align: center;
+}

@@ -2,7 +2,7 @@ import React from "react";
 // import $ from 'jquery';
 // import Popper from 'popper.js';
 import { useState } from "react";
-import Login from "./login";
+//import Login from "./login";
 import { Link } from "react-router-dom";
 
 const Registration = ({ contract, account, provider }) => {

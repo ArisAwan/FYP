@@ -6,14 +6,11 @@ import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import React from "react";
 import "./App.css";
+import Display from "./components/Display";
+import PostUpload from "./components/PostUpload";
 import Registration from "./components/Registration";
 import Login from "./components/login";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 function App() {
   const [account, setAccount] = useState("");
@@ -39,7 +36,7 @@ function App() {
         setAccount(address);
         console.log("currently signin in metamask", address);
         console.log("sheriiiiiiiiirishiiiii", address);
-        let contractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+        let contractAddress = "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9";
 
         console.log("abi object is ", Signup_signin.abi);
         const contract = new ethers.Contract(
@@ -63,7 +60,7 @@ function App() {
     <>
       {/* This is the alias of BrowserRouter i.e. Router */}
       <Router>
-        <Switch>
+        <Route>
           {/* This route is for home component 
           with exact path "/", in component props 
           we passes the imported component*/}
@@ -94,7 +91,27 @@ function App() {
               />
             )}
           />
-        </Switch>
+
+          <Route
+            exact
+            path="/post"
+            render={() => (
+              <PostUpload
+                account={account}
+                provider={provider}
+                contract={contract}
+              />
+            )}
+          />
+
+          <Route
+            exact
+            path="/Display"
+            render={() => (
+              <Display contract={contract} account={account}></Display>
+            )}
+          />
+        </Route>
       </Router>
       {/* <div className='App'>
       <Registration />

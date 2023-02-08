@@ -1,9 +1,12 @@
 import React from "react";
+
 // import $ from 'jquery';
 // import Popper from 'popper.js';
 import { useState } from "react";
 
 const Login = ({ contract, account, provider }) => {
+  //navigating to home
+
   //Getting data from form and storing it
   const [userLogin, setUserLogin] = useState({
     email: "",
@@ -21,15 +24,19 @@ const Login = ({ contract, account, provider }) => {
   const handleSubmit = async (e) => {
     e.preventDefault(); //Prevents forms default behaviour on submitting that is refreshing the form
     //code to send data to blockchain
-    let signin_confirmation = await contract.signin(
-      userLogin.email,
-      userLogin.password
-    );
-    console.log("returningggg from sign in", signin_confirmation);
-    if (signin_confirmation) {
-      alert("successfully login");
-    } else {
-      alert("first signup");
+    try {
+      let signin_confirmation = await contract.signin(
+        userLogin.email,
+        userLogin.password
+      );
+      console.log("returningggg from sign in", signin_confirmation);
+      if (signin_confirmation) {
+        alert("successfully login");
+      } else {
+        alert("first signup");
+      }
+    } catch (e) {
+      alert(e.message);
     }
   };
   //-----------------------------------------------------------------------------------------------------------
@@ -41,7 +48,7 @@ const Login = ({ contract, account, provider }) => {
         <div className="user-details">
           <div className="form-group input-box">
             <label htmlFor="email" className="reg-field-label">
-              Email :
+              Metamask Account :
             </label>
             <input
               type="text"
@@ -54,7 +61,7 @@ const Login = ({ contract, account, provider }) => {
               onChange={handleInput}
             />
           </div>
-
+          
           <div className="form-group input-box">
             <label htmlFor="password" className="reg-field-label">
               Password :
