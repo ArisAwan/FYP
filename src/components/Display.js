@@ -3,23 +3,41 @@ import "./Display.css";
 const Display = ({ contract, account }) => {
   const [data, setData] = useState("");
   const [descData, setDescData] = useState("");
+  let allAddresses;
 
-  const getDescData = async () => {
+  const getAllUsersData = async () => {
+    allAddresses = await contract.getAddresses();
+    console.log("all Addresses", allAddresses);
+    const str = allAddresses.toString();
+    const address_array = str.split(",");
+    console.log("lengthhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh", address_array.length);
+
+    for (let i = 0; i < address_array.length; i++) {
+      // getDescData(address_array[i]);
+      // getdata(address_array[i]);
+      // console.log(address_array[i]);
+    }
+  };
+
+  getAllUsersData();
+
+  const getDescData = async (userAddress) => {
     let postDescArray;
 
     try {
       // dataArray = await contract.display(account);
 
-      postDescArray = await contract.getDescPostbyAddress(account);
+      postDescArray = await contract.getDescPostbyAddress(userAddress);
 
       const str = postDescArray.toString();
       const str_array = str.split(",");
       console.log(str);
       // console.log(str_array);
+
       const PostsDesc = str_array.map((item, i) => {
         return (
           <div className="single-post-container">
-            <span className="account-name">USER ADDRESS:{account}</span>
+            <span className="account-name">USER ADDRESS:{userAddress}</span>
             <div className="image-container">
               <textarea
                 name="descriptiontext"
@@ -44,12 +62,12 @@ const Display = ({ contract, account }) => {
     }
   };
 
-  const getdata = async () => {
+  const getdata = async (userAddress) => {
     let dataArray;
     try {
       // dataArray = await contract.display(account);
 
-      dataArray = await contract.getPostbyAddress(account);
+      dataArray = await contract.getPostbyAddress(userAddress);
       // console.log("arrayyyy", dataArray);
       // console.log("typeeeee of varrrr", dataArray);
     } catch (e) {
@@ -63,7 +81,7 @@ const Display = ({ contract, account }) => {
     const images = str_array.map((item, i) => {
       return (
         <div className="single-post-container">
-          <span className="account-name">USER ADDRESS:{account}</span>
+          <span className="account-name">USER ADDRESS:{userAddress}</span>
           <div className="image-container">
             <img
               key={i}
@@ -81,8 +99,7 @@ const Display = ({ contract, account }) => {
     });
     setData(images);
   };
-  getdata();
-  getDescData();
+
   return (
     <div className="main-container">
       <div className="posts-container">

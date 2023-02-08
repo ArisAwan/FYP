@@ -86,7 +86,7 @@ contract Signup_signin {
     }
 
     function getAddresses() public view returns(address[] memory)
-    {   require(addresses.length==0,"no user exists");
+    {   
         return addresses;
     }
 
